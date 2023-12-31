@@ -1,11 +1,14 @@
-const express = require("express")
-const app = express()
+const express = require("express");
+const app = express();
 
-app.use(express.static(__dirname + "/public"))
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
+app.use(express.static(__dirname + "/public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 
-app.set('view engine', 'ejs')
+// app.enable('trust proxy');
+// console.log(app.get('trust proxy'));
 
 // app.use(logger)
 
@@ -17,13 +20,15 @@ app.set('view engine', 'ejs')
 //     res.render('index', { text: "World" })
 // })
 
-const userRouter = require("./routes/users")
+const userRouter = require("./routes/users");
+app.use("/users", userRouter);
 
-app.use("/users", userRouter)
+const yifyRouter = require("./routes/yify");
+app.use("/yify", yifyRouter);
 
 // function logger(req, res, next) {
 //     console.log(req.originalUrl)
 //     next()
 // }
 
-app.listen(25281)
+app.listen(25281);

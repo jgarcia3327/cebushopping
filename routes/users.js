@@ -13,7 +13,7 @@ router.get('/new', (req, res) => {
 })
 
 router.post("/", (req, res) => {
-    const isValid = true;
+    const isValid = false;
     if (isValid) {
         users.push({ firstName: req.body.firstName })
         res.redirect(`/users/${users.length - 1}`)
@@ -60,4 +60,4 @@ function logger(req, res, next) {
     next()
 }
 
-module.exports = router
+module.exports = router;

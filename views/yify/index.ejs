@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul > li {
+            padding-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    Ka <%= locals.firstName || 'Wa-el'%> nga YIFY:<br/>
+    <ul>
+        <% movies.forEach(function(movie){%>
+            <li> 
+                <img style="width:200px" src="https://img.yts.mx<%= movie.large_cover_image %>"/>
+                <%= movie.title_english %>
+                (<%= movie.year %>) |
+                <%= movie.language %> |
+                <%= movie.rating %> 
+                <% if (movie.yt_trailer_code.length > 0) {%>
+                    <iframe width="512" height="288" src="https://www.youtube.com/embed/<%=movie.yt_trailer_code%>" frameborder="0" allowfullscreen></iframe>
+                <% } %>
+                <br/>
+                <% for (let i=0; i < movie.torrents.length; i++){
+                    let torrent = movie.torrents[i];
+                    %>
+                    <%= torrent.quality %>( 
+                    <a href="https://yts.mx<%= torrent.url %>" target="_blank">Torrent</a>,  
+                    <a href="magnet:?xt=urn:btih:<%= torrent.hash %>&dn=<%= movie.title_english %>" target="_blank">Magnet</a>)
+                    <% if (i < (movie.torrents.length - 1)) {%> | <%}%>
+                <%} %>
+            </li>
+        <%}) %>
+    </ul>
+    
+</body>
+</html>
