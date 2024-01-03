@@ -1,0 +1,32 @@
+<!-- Photo grid -->
+<div class="w3-row">
+  <div class="w3-third">
+    <% movies.forEach(function(movie, i){%>
+      <div>
+        <img src="https://img.yts.mx<%= movie.medium_cover_image %>" style="width:100%" onclick="onClick(this,'<%=movie.yt_trailer_code%>')" 
+        alt="<%= movie.title_english %> <br> (<%= movie.year %>) <%= movie.language %> | <%= movie.rating %> rating <br><br><%= movie.summary || movie.synopsis || movie.description_full %>">
+        <span><%= movie.rating %></span>
+        <div class="torrent-download">
+          <% let last_quality = '';
+          for (let i=0; i < movie.torrents.length; i++){
+            let torrent = movie.torrents[i];
+            if (last_quality == torrent.quality) continue;
+            last_quality = torrent.quality;
+            %>
+            <%= torrent.quality %>( 
+            <a href="https://yts.mx<%= torrent.url %>">Torrent</a>,  
+            <a href="magnet:?xt=urn:btih:<%= torrent.hash %>&dn=<%= movie.title_english %>">Magnet</a>)
+            <% if (i < (movie.torrents.length - 1)) {%> | <%}%>
+        <%} %>
+        </div>
+      </div>
+      <% if (i+1 == locals.perPage) { %>
+      </div>
+      <% } else if (i+1 == (locals.perPage/2)) { %>
+      </div></div> <div class="w3-row"> <div class="w3-third">
+      <% } else if ((i+1) % 3 == 0) { %>
+      </div> <div class="w3-third">
+      <% } %>      
+    <%}) %>
+</div>
+

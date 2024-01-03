@@ -1,0 +1,10 @@
+{
+    "prod": {
+        "host": "mysql.au.cloudlogin.co",
+        "user": "jgarcia24_yify",
+        "password":"Thd2m0P2T!",
+        "database":"jgarcia24_yify",
+        "driver":"mysql",
+        "multipleStatements":true
+    }, "sql-file": true
+}
