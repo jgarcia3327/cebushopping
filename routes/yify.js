@@ -12,9 +12,9 @@ router.get('/', async (req, res) => {
     
     // await storeToDB();
     // console.log(process.env.DB_NAME);
-    // console.log(req.socket.remoteAddress);
-    // console.log(req.ip);
-    // console.log(req.headers['x-forwarded-for']);
+    console.log(req.socket.remoteAddress);
+    console.log(req.ip);
+    console.log(req.headers['x-forwarded-for']);
     
     const recentMovies = Array();
     var page = 1;
@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
                 if(recentMovies.length == perPage) {
                     ssn.lastId = movie.id;
                     ssn.lastPage = page-1;
-                    console.log(ssn.lastId + " === " + ssn.lastPage);
+                    // console.log(ssn.lastId + " === " + ssn.lastPage);
                     break;
                 }
             }
@@ -53,7 +53,6 @@ router.get('/loadmore', async (req, res) => {
         if (result == null || result.data == null || result.data.movies == null) continue;
         for(const movie of result.data.movies) {
             if(movie.yt_trailer_code.length > 0 && (movie.year == 2023 || movie.year == 2024)) {
-                console.log(movie.id);
                 if (movie.id == ssn.lastId) {
                     isStoreNew = true;
                     continue;
@@ -64,7 +63,7 @@ router.get('/loadmore', async (req, res) => {
                     if(recentMovies.length == perPage) {
                         ssn.lastId = movie.id;
                         ssn.lastPage = page-1;
-                        console.log(ssn.lastId + " === " + ssn.lastPage);
+                        // console.log(ssn.lastId + " === " + ssn.lastPage);
                         break;
                     }
                 }
