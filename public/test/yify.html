@@ -24,6 +24,15 @@ ol>li>strong{
   color: #af0808;
   text-shadow: 2px 2px 3px #ffc107;
 }
+@media (min-width: 601px) {
+  .w3-third {
+      width: 100%;
+  }
+  .w3-third > div {
+    width: 33%;
+    display: table-cell;
+  }
+}
 </style>
 </head>
 <body class="w3-light-grey w3-content" style="max-width:1600px">
@@ -71,19 +80,19 @@ ol>li>strong{
   
   <!-- Photo grid -->
   <div class="w3-row">
-    <div class="w3-fourth">
+    <div class="w3-third">
       <div><img src="https://www.w3schools.com/w3images/natureboy.jpg" style="width:100%" onclick="onClick(this)" alt="A boy surrounded by beautiful nature"><span>4.5</span></div>
       <div><img src="https://www.w3schools.com/w3images/girl_mountain.jpg" style="width:100%" onclick="onClick(this)" alt="What a beautiful scenery this sunset"><span>6.0</span></div>
       <div><img src="https://www.w3schools.com/w3images/girl.jpg" style="width:100%" onclick="onClick(this)" alt="The Beach. Me. Alone. Beautiful"><span>3.6</span></div>
     </div>
 
-    <div class="w3-fourth">
+    <div class="w3-third">
       <div><img src="https://www.w3schools.com/w3images/boy.jpg" style="width:100%" onclick="onClick(this)" alt="Quiet day at the beach. Cold, but beautiful"><span>4.5</span></div>
       <div><img src="https://www.w3schools.com/w3images/man_bench.jpg" style="width:100%" onclick="onClick(this)" alt="Waiting for the bus in the desert"><span>4.5</span></div>
       <div><img src="https://www.w3schools.com/w3images/natureboy.jpg" style="width:100%" onclick="onClick(this)" alt="Nature again.. At its finest!"><span>4.5</span></div>
     </div>
     
-    <div class="w3-fourth">
+    <div class="w3-third">
       <div><img src="https://www.w3schools.com/w3images/girl.jpg" style="width:100%" onclick="onClick(this)" alt="Canoeing again"><span>6.0</span></div>
       <div><img src="https://www.w3schools.com/w3images/girl_train.jpg" style="width:100%" onclick="onClick(this)" alt="A girl, and a train passing"><span>6.0</span></div>
       <div><img src="https://www.w3schools.com/w3images/closegirl.jpg" style="width:100%" onclick="onClick(this)" alt="What a beautiful day!"><span>6.0</span></div>
