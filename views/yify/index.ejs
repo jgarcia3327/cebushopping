@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
 <title>Latest Torrent Movies</title>
-
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+<link rel="manifest" href="../assets/favicon/site.webmanifest">
 <meta name="description" content="Yify API torrent experiment, for personal use only." />
 <meta name="author" content="Julius Garcia" />
 <meta name="og:type" content="Website" />
@@ -75,6 +78,21 @@ p#caption {
   min-height: 75px;
   line-height: 1.6em;
 }
+.refresh-wrapper {
+  float: left;
+}
+.refresh-wrapper img {
+  width:60px; 
+  cursor:pointer; 
+  margin: auto;
+}
+@media (max-width: 768px) {
+  .refresh-wrapper {
+    width: 100%;
+    display: flex;
+    float: unset;  
+  }
+}
 @media (min-width: 601px) {
   .w3-third {
       width: 100%;
@@ -120,8 +138,9 @@ p#caption {
 
 <!-- Top menu on small screens -->
 <header class="w3-container w3-top w3-white w3-xlarge w3-padding-16" style="max-width:1200px;position:relative;">
+  <div class="refresh-wrapper"><img title="Refresh" alt="Refresh" onclick="refresh()" src="../assets/refresh.png"/></div>
   <span class="w3-left w3-padding">QUALITY GRADE - LATEST TORRENT MOVIES</span>
-  <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">Disclaimer</a>
+  <a href="javascript:void(0)" style="font-size:12px;" class="w3-right w3-button w3-white" onclick="w3_open()">Disclaimer</a>
 </header>
 
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -207,6 +226,13 @@ function closeModal(element) {
   element.style.display='none';
 }
 
+// Modal close on escape key
+$(document).keyup(function(e){
+  if(e.key === "Escape") {
+    closeModal($('#modal01')[0]);
+  }
+});
+
 // Bottom Scroll Listener
 var isActive = false;
 $(window).scroll(function() {
@@ -218,6 +244,11 @@ $(window).scroll(function() {
     });
    }
 });
+
+// Refresh page
+function refresh() {
+  location.reload(true);
+}
 
 </script>
 

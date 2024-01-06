@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
         page++;
         if (result == null || result.data == null || result.data.movies == null) continue;
         for(const movie of result.data.movies) {
-            if(movie.yt_trailer_code.length > 0 && (movie.year == 2023 || movie.year == 2024)) {
+            if(movie.yt_trailer_code.length > 0 && (movie.year == (year - 1) || movie.year == year)) {
                 movie.language = await getLanguage(movie.language);
                 recentMovies.push(movie);
                 if(recentMovies.length == perPage) {
@@ -52,7 +52,7 @@ router.get('/loadmore', async (req, res) => {
         page++;
         if (result == null || result.data == null || result.data.movies == null) continue;
         for(const movie of result.data.movies) {
-            if(movie.yt_trailer_code.length > 0 && (movie.year == 2023 || movie.year == 2024)) {
+            if(movie.yt_trailer_code.length > 0 && (movie.year == (year - 1) || movie.year == year)) {
                 if (movie.id == ssn.lastId) {
                     isStoreNew = true;
                     continue;
