@@ -30,7 +30,6 @@ router.get('/', async (req, res) => {
                 if(recentMovies.length == perPage) {
                     ssn.lastId = movie.id;
                     ssn.lastPage = page-1;
-                    // console.log(ssn.lastId + " === " + ssn.lastPage);
                     break;
                 }
             }
@@ -63,7 +62,6 @@ router.get('/loadmore', async (req, res) => {
                     if(recentMovies.length == perPage) {
                         ssn.lastId = movie.id;
                         ssn.lastPage = page-1;
-                        // console.log(ssn.lastId + " === " + ssn.lastPage);
                         break;
                     }
                 }
