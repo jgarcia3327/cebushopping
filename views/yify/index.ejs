@@ -157,7 +157,7 @@ p#caption {
         <img src="https://img.yts.mx<%= movie.medium_cover_image %>" style="width:100%" onclick="onClick(this,'<%=movie.yt_trailer_code%>')" 
         alt="<%= movie.title_english %> <br> (<%= movie.year %>) <%= movie.language %> | <%= movie.rating %> rating <br><br><%= movie.summary || movie.synopsis || movie.description_full %>">
         <span><%= movie.rating %></span>
-        <div class="torrent-download">Downloads:<br>
+        <div class="torrent-download"><%= movie.title_english %> (<%= movie.language %>)<br>
           <%
           let last_quality = '';
           let count = 0;
@@ -263,6 +263,10 @@ $(window).scroll(function() {
 function refresh() {
   location.reload(true);
 }
+
+$(window).on('popstate', function(event) {
+ alert("pop");
+});
 
 </script>
 
