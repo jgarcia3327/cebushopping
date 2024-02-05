@@ -28,8 +28,8 @@
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 .w3-third img{margin-bottom: -6px; opacity: 1; cursor: pointer}
 .w3-third img:hover{
-  border-top-left-radius: 50%;
-  box-shadow: -6px -3px 10px #ef6904;
+  opacity: 0.4;
+  transition: opacity 0.2s linear;
 }
 ol>li>strong{
     color: #000;
@@ -40,6 +40,7 @@ ol>li {
 .w3-third > div {
   position: relative;
   text-align: center;
+  background-color: #e8a631c4;
 }
 .w3-third > div > span {
   position: absolute;
@@ -207,6 +208,11 @@ $(document).keyup(function(e){
   }
 });
 
+// On ready
+$(document).ready(function(){
+  checkImages();
+});
+
 // Bottom Scroll Listener
 var isActive = false;
 $(window).scroll(function() {
@@ -226,9 +232,6 @@ function checkImages() {
   $('.movie-img').on('error', (event) => {
     const img = $(event.target);
     img.each(function(i, obj){
-      // console.log(obj.attributes.src);
-      // console.log(obj.attributes.src.value);
-      // console.log(obj.attributes.src.value.replace('large', 'medium'));
       $(this).attr('src', obj.attributes.src.value.replace('large', 'medium'));
     });
   });
