@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const axios = require("axios");
-const yifyEp = "https://www.yts.nz/api/v2/list_movies.json?limit=50";
+const yifyEp = "https://www.yts.am/api/v2/list_movies.json?limit=50";
 const year = new Date().getFullYear();
 
 var ssn;
