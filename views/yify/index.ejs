@@ -76,6 +76,11 @@ p#caption {
   text-align: center;
   background-color: #fff;
 }
+.loader img {
+  width: 198px;
+  margin-top: 60px;
+  margin-bottom: 90px;
+}
 .torrent-download {
   background-color: #fff;
   padding: 8px 10px;
@@ -216,7 +221,7 @@ $(document).ready(function(){
 // Bottom Scroll Listener
 var isActive = false;
 $(window).scroll(function() {
-   if( ($(window).scrollTop() + $(window).height() > $(document).height() - 400) && !isActive ) {
+   if( ($(window).scrollTop() + $(window).height() > $(document).height() - 600) && !isActive ) {
     isActive = true;
     $.get( "/yify/loadmore", function( data ) {
       $('.w3-main').append(data);
