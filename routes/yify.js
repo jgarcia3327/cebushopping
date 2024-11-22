@@ -16,6 +16,19 @@ router.get('/', async (req, res) => {
     console.log(req.ip);
     console.log(req.headers['x-forwarded-for']);
     
+    
+})
+
+router.get('/TMP_TEST', async (req, res) => {
+    
+    ssn = req.session;
+    
+    // await storeToDB();
+    // console.log(process.env.DB_NAME);
+    console.log(req.socket.remoteAddress);
+    console.log(req.ip);
+    console.log(req.headers['x-forwarded-for']);
+    
     const recentMovies = Array();
     var page = 1;
     const perPage = 18;
